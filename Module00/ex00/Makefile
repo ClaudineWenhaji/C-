@@ -19,7 +19,7 @@ all:		$(NAME)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@printf "$(YELLOW) Compiling object files [$(NAME)]...$(RESET)"
+	@printf "$(YELLOW)Compiling object files [$(NAME)]...$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) 
 	@printf "$(GREEN) Finished [$(NAME)]$(RESET)"
 
