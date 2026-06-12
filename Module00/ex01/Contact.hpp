@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 16:48:17 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/23 13:57:20 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/05/26 11:40:11 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ public:
       
       // Setters ou mutateurs qui permettent 
       // de modifier les attributs (ou donnees) de la classe Contact
-      void setFirstName(std::string str);
-      void setLastName(std::string str);
-      void setNickName(std::string str);
-      void setPhoneNumber(std::string str);
-      void setDarkestSecret(std::string str);
+      int setFirstName(std::string str);
+      int setLastName(std::string str);
+      int setNickName(std::string str);
+      int setPhoneNumber(std::string str);
+      int setDarkestSecret(std::string str);
  
       // Getters ou accesseurs qui permettent 
       // d'accéder aux valeurs des attributs de la classe Contact

@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 16:51:40 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/23 13:35:06 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/05/26 12:25:29 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ class	PhoneBook
 {
 private:
    Contact contacts[8];
-   int currentIndex; // Index pour suivre le nombre de contacts ajoutés
+   int currentIndex; 
 
 public:
-   PhoneBook();  // Constructeur par défaut qui initialise les attributs de la classe PhoneBook
-   ~PhoneBook(); // Destructeur qui est appelé lorsque l'objet PhoneBook est détruit
+   PhoneBook();  
+   ~PhoneBook(); 
 
-   void addContact(); // Méthode pour ajouter un contact à la liste
-   void searchContact() const; // Méthode pour rechercher et afficher les contacts dans la liste
+   void addContact(); 
+   std::string formatColumn(const std::string& str) const;
+   int isNumber(const std::string& str) const;
+   void searchContact() const; 
 };
 
 #endif

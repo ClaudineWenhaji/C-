@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:03:31 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/23 13:27:31 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/05/26 12:03:32 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,49 +42,58 @@ int Contact::ft_isAlpha(const std::string& str) const
     return 1; 
 }
 
-void Contact::setFirstName(std::string str)
+int Contact::setFirstName(std::string str)
 {
     if (!str.empty() && this->ft_isAlpha(str))
+    {
         this->firstName = str;
-    else
-        std::cout << "Invalid first name. Please enter a valid first name." << std::endl;
+        return 1;
+    }
+    return 0;
 }
 
-void Contact::setLastName(std::string str)
+int Contact::setLastName(std::string str)
 {
     if (!str.empty() && this->ft_isAlpha(str))
-      this->lastName = str;
-    else
-        std::cout << "Invalid last name. Please enter a valid last name." << std::endl;
+    {
+        this->lastName = str;
+        return 1;
+    }
+    return 0;   
 }
 
-void Contact::setNickName(std::string str)
+int Contact::setNickName(std::string str)
 {
     if (!str.empty() && this->ft_isAlpha(str))
+    {                   
         this->nickName = str;
-    else
-        std::cout << "Invalid nickname. Please enter a valid nickname." << std::endl;
+        return 1;
+    }
+    return 0;
 }
 
-void Contact::setPhoneNumber(std::string str)
+int Contact::setPhoneNumber(std::string str)
 {
     if (!str.empty() && this->ft_isValidPhoneNumber(str))
-        this->phoneNumber = str;
-    else
     {
-        std::cout << "Invalid phone number. Please enter a valid phone number." << std::endl;
+        this->phoneNumber = str;
+        return 1;
     }
+    return 0;   
 }
 
-void Contact::setDarkestSecret(std::string str)
+int Contact::setDarkestSecret(std::string str)
 {
     if (!this->darkestSecret.empty())
     {
         std::cout << "Darkest secret already set. Cannot overwrite existing secret." << std::endl;
-        return;
+        return 0;
     }
     this->darkestSecret = str;
+    return 1;
 }
+
+// GETTERS
 
 std::string Contact::getFirstName() const
 {
