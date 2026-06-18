@@ -1,0 +1,53 @@
+Aller dans mon home
+faire ncdu
+supprimer ce quil ya a supprimer.
+
+Pour creer de nouveaux environnements avec des kernel associes dans un jupyter notebook
+
+chercher Python: create environment et donner le nom 
+
+Method 1: Install kernel, then move it
+
+1- Install the kernel:
+python -m ipykernel install --name mykernel --user
+
+2- Find where it was installed:
+jupyter kernelspec list
+
+You’ll see something like:
+mykernel    /home/user/.local/share/jupyter/kernels/mykernel
+
+3- Move it to your desired folder:
+mv /home/user/.local/share/jupyter/kernels/mykernel /your/custom/path/
+
+4- Tell Jupyter to use that location:
+jupyter kernelspec install /your/custom/path/mykernel
+
+Method 2: Install directly into a custom folder (recommended)
+
+Use the --prefix option:
+
+python -m ipykernel install \
+  --name mykernel \
+  --prefix /your/custom/path
+
+This creates:
+
+/your/custom/path/share/jupyter/kernels/mykernel
+
+Convertir un notebook jupyter (.ipynb) en fichier python (.py)
+jupyter nbconvert --to script notebook.ipynb
+
+ou encore (plus propre) 
+jupyter nbconvert --to script --no-prompt notebook.ipynb
+
+il va creer un fichier notebook.py
+
+Conversion inverse
+jupyter nbconvert --to notebook script.py
+
+pip install black isort
+black script.py
+isort script.py
+
+
