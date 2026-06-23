@@ -1,15 +1,15 @@
-NAME		= megaphone
+NAME			= megaphone
 
-CC		= c++
+CC				= c++
 CFLAGS          = -Wall -Wextra -Werror -std=c++98
 
-SRCS		= megaphone.cpp
+SRCS			= megaphone.cpp
 OBJS            = $(SRCS:%.cpp=%.o)
 
 GREEN           = \033[0;32m
 RED             = \033[0;31m
 YELLOW          = \033[0;33m
-BLUE 		= \033[0;34m
+BLUE 			= \033[0;34m
 RESET           = \033[0m
 
 all:		$(NAME)

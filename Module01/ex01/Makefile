@@ -4,6 +4,7 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 SRCS		= main.cpp Zombie.cpp ZombieHorde.cpp
+HEADERS		= Zombie.hpp
 OBJS		= $(SRCS:%.cpp=%.o)
 
 GREEN		= \033[0;32m
@@ -14,7 +15,7 @@ RESET		= \033[0m
 
 all			= $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

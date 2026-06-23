@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 16:51:40 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/26 12:25:29 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:50:04 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ class	PhoneBook
 {
 private:
    Contact contacts[8];
-   int currentIndex; 
+   int currentIndex;
+   int countContact;
 
 public:
    PhoneBook();  

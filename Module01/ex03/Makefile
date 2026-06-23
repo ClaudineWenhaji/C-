@@ -4,6 +4,7 @@ CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 SRCS		= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+HEADERS		= HumanA.hpp HumanB.hpp Weapon.hpp
 OBJS		= $(SRCS:%.cpp=%.o)
 
 GREEN		= \033[0;32m

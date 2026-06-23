@@ -1,20 +1,21 @@
-NAME		= phonebook
+NAME			= phonebook
 
-CC		= c++
+CC				= c++
 CFLAGS          = -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp PhoneBook.cpp Contact.cpp
+SRCS			= main.cpp PhoneBook.cpp Contact.cpp
 OBJS            = $(SRCS:%.cpp=%.o)
+HEADERS			= Contact.hpp Phonebook.hpp
 
 GREEN           = \033[0;32m
 RED             = \033[0;31m
 YELLOW          = \033[0;33m
-BLUE 		= \033[0;34m
+BLUE 			= \033[0;34m
 RESET           = \033[0m
 
 all:		$(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

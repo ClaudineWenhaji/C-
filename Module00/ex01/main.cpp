@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:00:04 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/23 12:44:45 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:08:24 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	main(void)
         {
                 std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
                 std::getline(std::cin, command);
+                if (std::cin.eof())
+                  return (1);
     
                 if (command == "ADD")
                 {
@@ -40,6 +42,5 @@ int	main(void)
                     std::cout << "Invalid command. Please try again." << std::endl;
                 }
         }
-    
         return 0;
 }

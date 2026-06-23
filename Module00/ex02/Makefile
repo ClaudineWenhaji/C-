@@ -5,6 +5,7 @@ CFLAGS          = -Wall -Wextra -Werror -std=c++98
 
 SRCS			= tests.cpp Account.cpp
 OBJS            = $(SRCS:%.cpp=%.o)
+HEADERS			= Account.hpp
 
 GREEN           = \033[0;32m
 RED             = \033[0;31m
@@ -14,7 +15,7 @@ RESET           = \033[0m
 
 all:		$(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

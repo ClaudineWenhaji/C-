@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:03:31 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/05/26 12:03:32 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/23 18:28:01 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,6 @@ int Contact::setPhoneNumber(std::string str)
 
 int Contact::setDarkestSecret(std::string str)
 {
-    if (!this->darkestSecret.empty())
-    {
-        std::cout << "Darkest secret already set. Cannot overwrite existing secret." << std::endl;
-        return 0;
-    }
     this->darkestSecret = str;
     return 1;
 }
