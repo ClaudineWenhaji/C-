@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 17:02:57 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/23 18:52:16 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/24 15:47:23 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void PhoneBook::addContact()
                   std::cout << "Invalid first name. Please enter a valid first name." 
                             << std::endl;
       }
+      
       while (1)
       {
             std::cout << "Enter last name: ";
@@ -51,6 +52,7 @@ void PhoneBook::addContact()
                   std::cout << "Invalid last name. Please enter a valid last name." 
                             << std::endl;
       }
+      
       while (1)
       {
             std::cout << "Enter nickname: ";
@@ -63,6 +65,7 @@ void PhoneBook::addContact()
                   std::cout << "Invalid nickname. Please enter a valid nickname." 
                             << std::endl;
       }
+      
       while (1)
       {
             std::cout << "Enter phone number: ";
@@ -75,6 +78,7 @@ void PhoneBook::addContact()
                   std::cout << "Invalid phone number. Please enter only a digit number." 
                             << std::endl;
       }
+      
       while (1)
       {
             std::cout << "Enter darkest secret: ";
@@ -87,6 +91,7 @@ void PhoneBook::addContact()
                   std::cout << "Invalid darkest secret. Please enter a valid darkest secret." 
                             << std::endl;
       }
+      
       this->currentIndex = (this->currentIndex + 1) % 8; // Permet de réutiliser les indices de 0 à 7
       if (this->countContact < 8)
             this->countContact++;
@@ -118,7 +123,7 @@ void PhoneBook::searchContact() const
                 << std::setw(10) << "Last Name" << " | "
                 << std::setw(10) << "Nickname" 
                 << std::endl;
-      int i = 0;
+                
       for (int i = 0; i < this->countContact; i++)
       {
             if (!this->contacts[i].getFirstName().empty())
@@ -132,14 +137,17 @@ void PhoneBook::searchContact() const
       }
       std::string input;
       std::cout << "Enter the index of the contact to view details: ";
+      
       std::getline(std::cin, input);
       if (std::cin.eof())
             return ;
+            
       if (!isNumber(input))
       {
             std::cout << "Invalid input. Please enter a valid index number." << std::endl;
             return;
       }
+      
       int index = std::atoi(input.c_str());
       if (this->contacts[index].getFirstName().empty())
       {
