@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 19:19:50 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/18 14:40:21 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/25 18:36:04 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <sstream>
 
 std::string search_and_replace(const std::string& content,
-                                const std::string& s1,
-                                const std::string& s2)
+                               const std::string& s1,
+                               const std::string& s2)
 {
     if (s1.empty())
         return content;
@@ -53,15 +53,7 @@ int main(int ac, char **av)
         std::cerr << "Error: Cannot open file" << filename << std::endl;
         return 1;
     }
-
-        /*std::string content;
-        std::string line;
-        while (std::getline(inFile, line))
-        {
-            content += line;
-            content += "\n";
-        }*/
-
+    
     std::stringstream buffer;
     buffer << inFile.rdbuf();
     std::string content = buffer.str();

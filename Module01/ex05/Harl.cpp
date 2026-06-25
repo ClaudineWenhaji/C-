@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:47:37 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/18 15:49:51 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/25 16:04:06 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ void Harl::error(void){
 
 void Harl::complain(std::string level)
 {
-    typedef void (Harl::*Membersfunction)(void);
+    typedef void (Harl::*Memberfunctions)(void);
     
-    Membersfunction functions[] =
+    Memberfunctions functions[] =
     {
         &Harl::debug,
         &Harl::info,

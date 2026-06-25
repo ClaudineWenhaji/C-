@@ -15,7 +15,7 @@ RESET		= \033[0m
 
 all			= $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test:
-	valgrind --leak-check=full ./zombie
+	valgrind --leak-check=full ./violence
 
 .PHONY: all clean fclean re

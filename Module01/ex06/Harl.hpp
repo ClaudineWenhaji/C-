@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:47:41 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/18 15:21:19 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/25 17:28:23 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@ private:
     void info(void);
     void warning(void);
     void error(void);
+    
 public:
     Harl(void);
     ~Harl(void);
     void complain(std::string level);
+    
 };
 
 #endif
