@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 14:47:47 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/25 18:08:48 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/26 11:10:04 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main(int ac, char **av)
                   << std::endl;
         return (1);
     }
-
     
     Harl harl_test;
     harl_test.complain(av[1]);
