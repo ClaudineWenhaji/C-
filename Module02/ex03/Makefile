@@ -1,9 +1,11 @@
-NAME		= replace
+NAME		= bsp
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp 
+SRCS		= main.cpp Fixed.cpp Point.cpp bsp.cpp
+HEADERS		= Fixed.hpp Point.hpp
+
 OBJS		= $(SRCS:%.cpp=%.o)
 
 GREEN		= \033[0;32m
@@ -12,9 +14,9 @@ YELLOW		= \033[0;33m
 BLUE		= \033[0;34m
 RESET		= \033[0m
 
-all:		 $(NAME)
+all:		$(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
@@ -34,6 +36,6 @@ fclean: clean
 re: fclean all
 
 test:
-	valgrind --leak-check=full ./zombie
+	valgrind --leak-check=full ./bsp
 
 .PHONY: all clean fclean re

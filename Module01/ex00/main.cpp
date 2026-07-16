@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 12:15:50 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/17 15:26:20 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/26 09:46:37 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(void)
     
     std::cout << "...Zombie's Creation on STACK..." << std::endl;
     
-    randomChump("Hola");
+    randomChump("Foo");
     
     return (0);
 }

@@ -12,7 +12,7 @@ YELLOW		= \033[0;33m
 BLUE		= \033[0;34m
 RESET		= \033[0m
 
-all			= $(NAME)
+all:			 $(NAME)
 
 %.o: %.cpp
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"

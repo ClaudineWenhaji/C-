@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/17 15:37:05 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/26 10:04:30 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/07/16 19:34:53 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/07/16 21:33:06 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef POINT_HPP
+# define POINT_HPP
 
-Zombie::Zombie(void)
-{
+#include "Fixed.hpp"
+
+class Point{
     
-}
+private:
+    Fixed const x;
+    Fixed const y;
 
-Zombie::Zombie(std::string name) : _name(name)
-{
+public:
+    Point();
+    Point(Fixed x, Fixed y);
     
-}
+    Point(const Point& src);
+    Point& operator=(const Point& src);
+    ~Point();
 
-Zombie::~Zombie(void)
-{
-    std::cout << _name << " is destroyed!" << std::endl;
-}
+    Fixed getX() const;
+    Fixed getY() const;
+    
+};
 
-void Zombie::setName(std::string name)
-{
-    this->_name = name;
-}
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
-void Zombie::announce(void)
-{
-    std::cout << _name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+#endif

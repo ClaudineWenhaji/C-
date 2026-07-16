@@ -1,4 +1,4 @@
-NAME		= zombie
+NAME		= zombiehorde
 
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -13,7 +13,7 @@ YELLOW		= \033[0;33m
 BLUE		= \033[0;34m
 RESET		= \033[0m
 
-all			= $(NAME)
+all:		 $(NAME)
 
 %.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"

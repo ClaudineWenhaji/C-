@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 19:19:50 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/06/25 18:36:04 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/06/26 10:54:53 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 #include <sstream>
 
-std::string search_and_replace(const std::string& content,
+std::string replace(const std::string& content,
                                const std::string& s1,
                                const std::string& s2)
 {
@@ -23,12 +23,12 @@ std::string search_and_replace(const std::string& content,
         return content;
     std::string result;
     std::size_t pos = 0;
-    std::size_t found;
-    while ((found = content.find(s1, pos)) != std::string::npos)
+    std::size_t found_pos;
+    while ((found_pos = content.find(s1, pos)) != std::string::npos)
     {
-        result.append(content, pos, found - pos);
+        result.append(content, pos, found_pos - pos);
         result.append(s2);
-        pos = found + s1.length();
+        pos = found_pos + s1.length();
     }
     result.append(content, pos, std::string::npos);
     return result;
@@ -38,7 +38,7 @@ int main(int ac, char **av)
 {
     if (ac != 4)
     {
-        std::cerr << "Usage: " << av[0]
+        std::cerr << "Error... Usage: " << av[0]
               << " <filename> <s1> <s2>" << std::endl;
         return (1);
     }
@@ -50,13 +50,14 @@ int main(int ac, char **av)
     std::ifstream inFile(filename.c_str());
     if (!inFile.is_open())
     {
-        std::cerr << "Error: Cannot open file" << filename << std::endl;
+        std::cerr << "Error: Cannot open file " << filename << std::endl;
         return 1;
     }
     
     std::stringstream buffer;
     buffer << inFile.rdbuf();
-    std::string content = buffer.str();
+    
+    std::string content = buffer.str(); // transform the buffer in string
         
     inFile.close();
 
@@ -64,11 +65,11 @@ int main(int ac, char **av)
     std::ofstream outFile(outFilename.c_str());
     if(!outFile.is_open())
     {
-        std::cerr << "Cannot create output file" << std::endl;
+        std::cerr << "Cannot create output file." << std::endl;
            return 1;
     }
         
-    std::string result = search_and_replace(content, s1, s2);
+    std::string result = replace(content, s1, s2);
     outFile << result;
     outFile.close(); 
     return 0;
