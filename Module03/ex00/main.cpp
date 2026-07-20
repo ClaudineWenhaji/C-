@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/20 12:29:50 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/07/20 12:29:51 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 int	main(void)
@@ -17,10 +29,13 @@ int	main(void)
 	std::cout << "----------" << std::endl;
 	std::cout << villain.getName() << " just wants to attack." << std::endl;
 	std::cout << "----------" << std::endl;
+
 	villain.attack(hero.getName());
 	std::cout << "----------" << std::endl;
+
 	std::cout << hero.getName() << " now attacks" << std::endl;
 	hero.attack(villain.getName());
+	
 	std::cout << "----------" << std::endl;
 	std::cout << "None of them have any attack damage points! This will be a never ending fight!" << std::endl;
 	std::cout << "----------" << std::endl;

@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 12:29:31 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 17:40:14 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/20 17:44:25 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 ClapTrap::ClapTrap(): Name("Default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    std::cout << "ClapTrap " << Name << " Default Constructed!" << std::endl;
+    std::cout << "ClapTrap " << Name << " ClapTrap Default Constructed!" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string Name): Name(Name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-    std::cout << "ClapTrap " << Name << " Constructed!" << std::endl;
+    std::cout << "ClapTrap " << Name << " ClapTrap Constructed!" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src)
 {
-    std::cout << "ClapTrap " << Name << " Copy constructed!" << std::endl;
+    std::cout << "ClapTrap " << Name << " ClapTrap Copy constructed!" << std::endl;
     *this = src;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 {
-    std::cout << "ClapTrap " << Name << " Assignment operator" << std::endl;
+    std::cout << "ClapTrap " << Name << " ClapTrap Assignment operator" << std::endl;
     
     if (this != &src)
     {
@@ -44,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& src)
 
 ClapTrap::~ClapTrap() 
 {
-    std::cout << "ClapTrap " << Name << " Destructed!" << std::endl;
+    std::cout << "ClapTrap " << Name << " ClapTrap Destructed!" << std::endl;
 }
 
 // Setters
@@ -92,7 +92,6 @@ void ClapTrap::attack(const std::string& target)
               << " causing " << attackDamage << " points of damage!"
               << std::endl;
     return ;
-
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
