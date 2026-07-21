@@ -6,12 +6,12 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 12:29:40 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 15:20:51 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/21 16:05:04 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLASSTRAP_HPP
-# define CLASSTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 #include <iostream>
 #include <string>

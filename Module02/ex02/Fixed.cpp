@@ -6,16 +6,13 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 19:53:44 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/16 19:26:46 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/21 11:02:00 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(): fixedValue(0)
-{
-    //std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed(): fixedValue(0){}
 
 Fixed::Fixed(const Fixed& src)
 {
@@ -41,10 +38,7 @@ Fixed::Fixed(const float value_float){
     fixedValue = (roundf(value_float * (1 << fractionalBits)));
 }
 
-Fixed::~Fixed()
-{
-    //std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 int Fixed::getRawBits( void ) const
 {
@@ -68,45 +62,55 @@ float Fixed::toFloat() const{
 
 //------------------ Comparison Operators----------------------------------
 
-bool Fixed::operator>(const Fixed& src) const{
+bool Fixed::operator>(const Fixed& src) const
+{
     return fixedValue > src.fixedValue;
 }
 
-bool Fixed::operator<(const Fixed& src) const{
+bool Fixed::operator<(const Fixed& src) const
+{
     return fixedValue < src.fixedValue;
 }
 
-bool Fixed::operator<=(const Fixed& src) const{
+bool Fixed::operator<=(const Fixed& src) const
+{
     return fixedValue <= src.fixedValue;
 }
 
-bool Fixed::operator>=(const Fixed& src) const{
+bool Fixed::operator>=(const Fixed& src) const
+{
     return fixedValue >= src.fixedValue;
 }
 
-bool Fixed::operator==(const Fixed& src) const{
+bool Fixed::operator==(const Fixed& src) const
+{
     return fixedValue == src.fixedValue;
 }
 
-bool Fixed::operator!=(const Fixed& src) const{
+bool Fixed::operator!=(const Fixed& src) const
+{
     return fixedValue != src.fixedValue;
 }
 
 //---------------------- Arithmetic operators--------------------------------
 
-Fixed Fixed::operator+(const Fixed& src) const{
+Fixed Fixed::operator+(const Fixed& src) const
+{
     return Fixed(toFloat() + src.toFloat());
 }
 
-Fixed Fixed::operator-(const Fixed& src) const{
+Fixed Fixed::operator-(const Fixed& src) const
+{
     return Fixed(toFloat() - src.toFloat());
 }
 
-Fixed Fixed::operator*(const Fixed& src) const{
+Fixed Fixed::operator*(const Fixed& src) const
+{
     return Fixed(toFloat() * src.toFloat());
 }
 
-Fixed Fixed::operator/(const Fixed& src) const{
+Fixed Fixed::operator/(const Fixed& src) const
+{
     return Fixed(toFloat() / src.toFloat());
 }
 

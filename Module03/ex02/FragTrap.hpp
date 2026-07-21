@@ -6,9 +6,12 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 16:12:29 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 16:18:12 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/21 16:08:18 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 #include "ClapTrap.hpp"
 
@@ -23,3 +26,5 @@ class FragTrap : public ClapTrap
         
         void highFivesGuys(void);
 };
+
+#endif

@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 12:29:31 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 17:39:09 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/21 17:05:44 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ unsigned int ClapTrap::getAttackDamage() {return attackDamage;}
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (!hitPoints || !energyPoints)
+    if (hitPoints <= 0 || energyPoints <= 0)
     {
         std::cout << "ClapTrap " << Name << " Can't do anything. No hit/energy points. " << std::endl;
         return ;
