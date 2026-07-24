@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 12:29:50 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 17:43:02 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/24 17:23:09 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,31 @@
 int	main(void)
 {
 	// with DiamondTrap
-	
-    std::cout << "=== Creating DiamondTrap ===" << std::endl;
-	
-	std::cout << "--------------------------" << std::endl;
-	std::cout << std::endl;
-	
+    
+    std::cout << "=== Creating DiamondTrap ===\n\n";
+
     DiamondTrap d("Diamond");
 
-	std::cout << "--------------------------" << std::endl;
-	std::cout << std::endl;
+    std::cout << "\n--------------------------\n\n";
 
-    d.whoAmI();        // Shows both names
-    d.attack("Enemy"); // Uses ScavTrap's attack
-    d.guardGate();     // Inherited from ScavTrap
-    d.highFivesGuys(); // Inherited from FragTrap
+    d.whoAmI();
+    d.attack("Enemy");
+    d.guardGate();
+    d.highFivesGuys();
 
-	std::cout << "--------------------------" << std::endl;
-	std::cout << std::endl;
+    std::cout << "\n--------------------------\n\n";
+
+    std::cout << "=== Copy constructor ===" << std::endl;
+    DiamondTrap copy(d);
+    copy.whoAmI();
+
+    std::cout << "\n--------------------------\n\n";
+
+    std::cout << "=== Assignment operator ===" << std::endl;
+    DiamondTrap other("Other");
+    other = d;
+    other.whoAmI();
+
+    std::cout << "\n--------------------------\n\n";
     std::cout << "=== End of main ===" << std::endl;
-    return 0;
 }

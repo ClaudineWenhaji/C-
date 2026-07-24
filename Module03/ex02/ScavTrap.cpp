@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 12:32:08 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 17:38:37 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/24 17:41:07 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,25 @@ ScavTrap::ScavTrap(): ClapTrap(" Default")
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScavTrap " << Name << " ScavTrap Default Constructed!" << std::endl;
+    std::cout << "ScavTrap " << name << " Default Constructed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string Name) : ClapTrap(Name)
+ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 {
     hitPoints = 100;
     energyPoints = 50;
     attackDamage = 20;
-    std::cout << "ScavTrap " << Name << " ScavTrap Constructed!" << std::endl;
+    std::cout << "ScavTrap " << name << " Constructed!" << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& src): ClapTrap(src)
 {
-    std::cout << "ScavTrap " << Name << " ScavTrap Copy constructed!" << std::endl;
+    std::cout << "ScavTrap " << name << " Copy constructed!" << std::endl;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 {
-    std::cout << "ScavTrap " << Name << " ScavTrap Assignment operator" << std::endl;
+    std::cout << "ScavTrap " << name << " Assignment operator" << std::endl;
     
     if (this != &src)
         ClapTrap::operator=(src);
@@ -44,7 +44,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& src)
 
 ScavTrap::~ScavTrap() 
 {
-    std::cout << "ScavTrap " << getName() << " ScavTrap Destructed!" << std::endl;
+    std::cout << "ScavTrap " << getName() << " Destructed!" << std::endl;
 }
 
 void ScavTrap::guardGate()
@@ -55,14 +55,15 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target) 
 {
-    if (!hitPoints || !energyPoints)
+    if (hitPoints <= 0 || energyPoints <= 0)
     {
-        std::cout << "ScavTrap " << Name << " Can't do anything. No hit/energy points. " << std::endl;
+        std::cout << "ScavTrap " << name << " Can't do anything. No hit/energy points. " << std::endl;
         return ;
     }
     energyPoints -= 1;
-    std::cout << "ScavTrap " << Name << " attacks " << target 
-              << " causing " << attackDamage << " points of damage!"
+    std::cout << "ScavTrap " << name << " attacks " << target 
+              << " causing " << attackDamage << " points of damage! "
+              << " Energy Points: " << energyPoints
               << std::endl;
     return ;
 }

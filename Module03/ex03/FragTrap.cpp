@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 16:12:36 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/20 17:45:41 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/07/24 13:00:55 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,37 @@ FragTrap::FragTrap(): ClapTrap("Default")
     hitPoints = 100;
     energyPoints = 100;
     attackDamage = 30;
-    std::cout << "FragTrap" << Name 
-              << " FragTrap Default constructed!" 
+    std::cout << "FragTrap" << name 
+              << " Default constructed!" 
               << std::endl;
 }
 
-FragTrap::FragTrap(std::string Name): ClapTrap(Name)
+FragTrap::FragTrap(const std::string& name): ClapTrap(name)
 {
     
     hitPoints = 100;
     energyPoints = 100;
     attackDamage = 30;
-    std::cout << "FragTrap " << Name 
-              << " FragTrap Constructed!" 
+    std::cout << "FragTrap " << name 
+              << " Constructed!" 
               << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& src) : ClapTrap(src)
 {
-    std::cout << "FragTrap " << Name << " FragTrap Copy constructed!" << std::endl;
+    std::cout << "FragTrap " << name << " Copy constructed!" << std::endl;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap& src)
 {
-    std::cout << "FragTrap " << Name << " FragTrap Assignment operator" << std::endl;
+    std::cout << "FragTrap " << name << " Assignment operator" << std::endl;
     
     if (this != &src)
         FragTrap::operator=(src);
     return *this;
 }
 
-FragTrap::~FragTrap(){std::cout << "FragTrap " << getName() << " FragTrap Destructed!" << std::endl;}
+FragTrap::~FragTrap(){std::cout << "FragTrap " << getName() << " Destructed!" << std::endl;}
 
 void FragTrap::highFivesGuys(void)
 {

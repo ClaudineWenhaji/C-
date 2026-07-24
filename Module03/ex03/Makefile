@@ -1,4 +1,4 @@
-NAME		= diamondtrap
+name		= diamondtrap
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -13,24 +13,24 @@ YELLOW		= \033[0;33m
 BLUE		= \033[0;34m
 RESET		= \033[0m
 
-all:		$(NAME)
+all:		$(name)
 
 %.o: %.cpp $(HEADERS)
 	@printf "$(YELLOW)Compiling $<...$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	@printf "$(YELLOW) Compiling object files [$(NAME)]...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@printf "$(GREEN) Finished [$(NAME)]$(RESET)"
+$(name): $(OBJS)
+	@printf "$(YELLOW) Compiling object files [$(name)]...$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJS) -o $(name)
+	@printf "$(GREEN) Finished [$(name)]$(RESET)"
 
 clean:
 	@printf "$(RED)Deleting object files...$(RESET)\n"
 	@rm -f $(OBJS)
 
 fclean: clean
-	@printf "$(RED)Deleting executables $(NAME)...$(RESET)\n"
-	@rm -f $(NAME)
+	@printf "$(RED)Deleting executables $(name)...$(RESET)\n"
+	@rm -f $(name)
 
 re: fclean all
 
