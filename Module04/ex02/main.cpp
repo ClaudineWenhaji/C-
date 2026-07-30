@@ -1,5 +1,5 @@
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -14,8 +14,8 @@ int main()
     // AAnimal a;  // Error: cannot instantiate abstract class
 
     // This should work:
-    Animal* doga = new Dog();
-    Animal* cata = new Cat();
+    AAnimal* doga = new Dog();
+    AAnimal* cata = new Cat();
 
     doga->makeSound();  // "Woof!"
     cata->makeSound();  // "Meow!"
@@ -27,8 +27,8 @@ int main()
               << "\n========== TEST 1 : POLYMORPHISM ==========\n"
               << RESET;
 
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
+    const AAnimal* dog = new Dog();
+    const AAnimal* cat = new Cat();
 
     std::cout << std::endl;
     std::cout << GREEN << dog->getType() << " : " << RESET;
@@ -65,7 +65,7 @@ int main()
 
     std::cout << BOLD << CYAN << "\n========== TEST 3 : ARRAY OF ANIMALS ==========\n" << RESET;
 
-    Animal* zoo[5];
+    AAnimal* zoo[5];
 
     for (int i = 0; i < 5; i++)
     {

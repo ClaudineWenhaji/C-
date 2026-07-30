@@ -14,8 +14,10 @@ Brain::Brain(const Brain& src)
 Brain& Brain::operator=(const Brain& src)
 {
     if (this != &src)
+    {
         for (int i = 0; i < 100; i++)
             ideas[i] = src.ideas[i];
+    }
     return *this;
 }
 

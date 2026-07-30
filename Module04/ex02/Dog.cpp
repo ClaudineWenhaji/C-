@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog(): Animal()
+Dog::Dog(): AAnimal()
 {
     this->type = "Dog";
     // each dog has its own Brain
@@ -9,7 +9,7 @@ Dog::Dog(): Animal()
 }
 
 // Deep copy: This will create new Brain with same content
-Dog::Dog(const Dog& src): Animal(src)
+Dog::Dog(const Dog& src): AAnimal(src)
 {
     std::cout << "Dog DEEP copy is constructed" << std::endl;
 
@@ -20,9 +20,10 @@ Dog::Dog(const Dog& src): Animal(src)
 Dog& Dog::operator=(const Dog& src)
 {
     if (this != &src)
-        //Animal::operator=(src);
+    {
         delete dogBrain;            // free old brain
         dogBrain = new Brain(*src.dogBrain); // copy new brain
+    }
     return *this;
 }
 

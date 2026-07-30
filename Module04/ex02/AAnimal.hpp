@@ -1,19 +1,19 @@
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 #include <string>
 #include <iostream>
 
-class Animal
+class AAnimal
 {
     protected:
         std::string type;
 
     public:
-        Animal();
-        Animal(const Animal& src);
-        Animal& operator=(const Animal& src);
-        virtual ~Animal();
+        AAnimal();
+        AAnimal(const AAnimal& src);
+        AAnimal& operator=(const AAnimal& src);
+        virtual ~AAnimal();
 
         virtual void makeSound(void) const = 0; // pure virtual function
         // cannot create instances of abstract class

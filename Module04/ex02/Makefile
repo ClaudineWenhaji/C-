@@ -1,9 +1,9 @@
-name		= virtual
+name		= abstract
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRCS		= main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 
 OBJS		= $(SRCS:%.cpp=%.o)
 
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test:
-	valgrind --leak-check=full ./virtual
+	valgrind --leak-check=full ./abstract
 
 .PHONY: all clean fclean re

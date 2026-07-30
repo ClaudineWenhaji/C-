@@ -20,9 +20,10 @@ Dog::Dog(const Dog& src): Animal(src)
 Dog& Dog::operator=(const Dog& src)
 {
     if (this != &src)
-        //Animal::operator=(src);
+    {
         delete dogBrain;            // free old brain
         dogBrain = new Brain(*src.dogBrain); // copy new brain
+    }
     return *this;
 }
 

@@ -1,13 +1,13 @@
 #include "Cat.hpp"
 
-Cat::Cat(): Animal()
+Cat::Cat(): AAnimal()
 {
     this->type = "Cat";
     this->catBrain = new Brain;
     std::cout << "Cat is constructed" << std::endl;
 }
 
-Cat::Cat(const Cat& src): Animal(src)
+Cat::Cat(const Cat& src): AAnimal(src)
 {
     this->catBrain = new Brain(*src.catBrain);
     std::cout << "Cat DEEP copy is constructed" << std::endl;
@@ -16,8 +16,10 @@ Cat::Cat(const Cat& src): Animal(src)
 Cat& Cat::operator=(const Cat& src)
 {
     if (this != &src)
+    {
         delete catBrain;
         catBrain = new Brain(*src.catBrain);
+    }
     return *this;
 }
 

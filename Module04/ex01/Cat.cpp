@@ -16,8 +16,10 @@ Cat::Cat(const Cat& src): Animal(src)
 Cat& Cat::operator=(const Cat& src)
 {
     if (this != &src)
+    {
         delete catBrain;
         catBrain = new Brain(*src.catBrain);
+    }
     return *this;
 }
 
