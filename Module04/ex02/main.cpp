@@ -23,9 +23,7 @@ int main()
     delete doga;
     delete cata;
 
-    std::cout << BOLD << CYAN
-              << "\n========== TEST 1 : POLYMORPHISM ==========\n"
-              << RESET;
+    std::cout << BOLD << CYAN << "\n========== TEST 1 : POLYMORPHISM ==========\n" << RESET;
 
     const AAnimal* dog = new Dog();
     const AAnimal* cat = new Cat();
@@ -51,17 +49,11 @@ int main()
 
     original.getBrain()->ideas[0] = "I hate cats";
 
-    std::cout << GREEN << "Original idea : "
-              << RESET << original.getBrain()->ideas[0] << std::endl;
+    std::cout << GREEN << "Original idea : " << RESET << original.getBrain()->ideas[0] << std::endl;
+    std::cout << BLUE << "Copy idea     : " << RESET << copy.getBrain()->ideas[0] << std::endl;
 
-    std::cout << BLUE << "Copy idea     : "
-              << RESET << copy.getBrain()->ideas[0] << std::endl;
-
-    std::cout << MAGENTA << "Original Brain : "
-              << original.getBrain() << RESET << std::endl;
-
-    std::cout << MAGENTA << "Copy Brain     : "
-              << copy.getBrain() << RESET << std::endl;
+    std::cout << MAGENTA << "Original Brain : " << original.getBrain() << RESET << std::endl;
+    std::cout << MAGENTA << "Copy Brain     : " << copy.getBrain() << RESET << std::endl;
 
     std::cout << BOLD << CYAN << "\n========== TEST 3 : ARRAY OF ANIMALS ==========\n" << RESET;
 
@@ -89,9 +81,7 @@ int main()
     for (int i = 0; i < 5; i++)
         delete zoo[i];
 
-    std::cout << BOLD << CYAN
-              << "\n========== TEST 4 : BRAIN CONTENT ==========\n"
-              << RESET;
+    std::cout << BOLD << CYAN << "\n========== TEST 4 : BRAIN CONTENT ==========\n" << RESET;
 
     Dog thinker;
     std::cout << std::endl;
@@ -103,8 +93,7 @@ int main()
     thinker.getBrain()->ideas[4] = "Repeat";
 
     for (int i = 0; i < 5; i++)
-        std::cout << GREEN << "Idea[" << i << "] : "
-                  << RESET << thinker.getBrain()->ideas[i] << std::endl;
+        std::cout << GREEN << "Idea[" << i << "] : " << RESET << thinker.getBrain()->ideas[i] << std::endl;
 
     std::cout << BOLD << GREEN << "\n========== ALL TESTS PASSED ==========\n" << RESET;
 
