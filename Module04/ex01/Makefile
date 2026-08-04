@@ -34,7 +34,7 @@ fclean: clean
 
 re: fclean all
 
-test:
+test: $(name)
 	valgrind --leak-check=full ./brain
 
 .PHONY: all clean fclean re

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <exception>
+#include <iostream>
 
 class Bureaucrat
 {
@@ -14,22 +15,26 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public:
-                const char* what() throw(){return "Grade is too high";}
+                const char* what() const throw(){return "Grade is too high";}
+                
+                // Quand quelqu'un demande le message de cette exception, 
+                // retourne cette chaîne, sans modifier l'objet 
+                // et sans lancer une nouvelle exception
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() throw(){return "Grade is too low";}
+                const char* what() const throw(){return "Grade is too low";}
         };
 
-        Bureaucrat(const std::string name, int grade);
+        Bureaucrat(const std::string& name, int grade);
         Bureaucrat(const Bureaucrat& src);
         Bureaucrat& operator=(const Bureaucrat& src);
         ~Bureaucrat();
 
-        const std::string getName();
-        int getGrade();
+        const std::string& getName() const;
+        int getGrade() const;
 
         void incrementGrade();
         void decrementGrade();
