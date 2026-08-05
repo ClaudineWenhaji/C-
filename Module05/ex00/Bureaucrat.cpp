@@ -3,7 +3,7 @@
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
     : name(name), grade(grade)
 {
-    std::cout << "constructed!" << std::endl;
+    std::cout << "Bureaucrat is constructed!" << std::endl;
 
     if (grade < 1)
         throw GradeTooHighException();
@@ -14,19 +14,19 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 Bureaucrat::Bureaucrat(const Bureaucrat& src)
     : name(src.name), grade(src.grade)
 {
-    std::cout << "Copy constructed!" << std::endl;
+    std::cout << "Bureaucrat Copy constructed!" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src)
 {
-    std::cout << "Operator Assignment" << std::endl;
+    std::cout << "Bureaucrat Operator Assignment" << std::endl;
 
     if (this != &src)
         grade = src.grade; // cannot change name because it's const
     return *this;
 }
 
-Bureaucrat::~Bureaucrat(){std::cout << "Destructed!" << std::endl;}
+Bureaucrat::~Bureaucrat(){std::cout << "Bureaucrat is Destructed!" << std::endl;}
 
 const std::string& Bureaucrat::getName()const 
 {
