@@ -5,9 +5,12 @@
 #include <exception>
 #include <iostream>
 
+class Form;   // Forward declaration 
+              // pour eviter la dependance circulaire
+
 class Bureaucrat
 {
-    protected:
+    private:
         const std::string name;
         int grade;
         
@@ -39,7 +42,7 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         
-        void Bureaucrat::signForm(Form f);
+        void signForm(Form& f);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

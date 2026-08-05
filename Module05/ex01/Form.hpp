@@ -1,7 +1,12 @@
 #ifndef FORM_HPP
 # define FORM_HPP
 
-#include "Bureaucrat.hpp"
+#include <string>
+#include <iostream>
+#include <exception>
+
+class Bureaucrat; // Forward declaration 
+                  // pour eviter la dependance circulaire
 
 class Form
 {
@@ -34,11 +39,11 @@ class Form
         int getGradeToSign() const;
         int getGradeToExecute() const;
 
-        void beSigned(const Bureaucrat& b);
+        void beSigned(const Bureaucrat& bureau);
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& str, const Form& f);
 
 
 #endif
