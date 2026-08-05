@@ -36,17 +36,17 @@ class AForm
         class FormNotSignedException : public std::exception
         {
             public:
-                const char* what() const throw(){return "Form not signed: grade is not enough!";}
+                const char* what() const throw(){return "Form not signed!";}
         };
 
-        const std::string getName() const;
+        const std::string& getName() const;
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
 
         void beSigned(const Bureaucrat& bureau);
 
-        virtual const void execute(Bureaucrat const& executor) = 0; 
+        virtual void execute(Bureaucrat const& executor) const = 0; 
         // pure virtual fonction
 
     protected:

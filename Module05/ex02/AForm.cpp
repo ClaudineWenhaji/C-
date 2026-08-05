@@ -16,7 +16,6 @@ AForm::AForm(const AForm& src)
     : name(src.name), _signed(src._signed), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute)
 {
     std::cout << "Form Copy constructed" << std::endl;
-    *this = src;
 }
 
 AForm& AForm::operator=(const AForm& src)
@@ -28,7 +27,7 @@ AForm& AForm::operator=(const AForm& src)
 
 AForm::~AForm(){std::cout << "Form is destructed!" << std::endl;}
 
-const std::string AForm::getName() const {return name;}
+const std::string& AForm::getName() const {return name;}
 bool AForm::isSigned() const {return _signed;}
 int AForm::getGradeToSign() const{return gradeToSign;}
 int AForm::getGradeToExecute() const{return gradeToExecute;}
@@ -51,7 +50,7 @@ void AForm::checkExecutability(Bureaucrat const& executor) const
 std::ostream& operator<<(std::ostream& str, const AForm& f)
 {
     str << f.getName()
-       << " form is signed: " << (f.isSigned() ? "yes" : "no")
+       << " form is signed? " << (f.isSigned() ? "yes" : "no")
        << ", sign grade " << f.getGradeToSign()
        << ", exec grade " << f.getGradeToExecute();
     return str;

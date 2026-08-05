@@ -1,78 +1,79 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "Colors.hpp"
+#include <cstdlib>
+#include <ctime>
 
-int main()
+int main() 
 {
-    std::cout << GREEN << "********* TEST1: A Form with grade too high or too low ***********" << RESET << std::endl;
-    std::cout << std::endl; 
+    std::srand(std::time(NULL));
 
-    try
-    {
-        Form A("Claudine", 0, 5);
-        std::cout << YELLOW << A << RESET<< std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
-    }
+    std::cout << YELLOW << "********* CLASSES' CONSTRUCTION ***********" << RESET << std::endl;
     std::cout << std::endl;
 
-    try
-    {
-        Form A("Claudine", 1, 156);
-        std::cout << YELLOW << A << RESET<< std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << RED << "Exception: " << e.what() << RESET << std::endl;
-    }
+    Bureaucrat president("President", 1);
+    Bureaucrat clerk("Clerk", 140);
     std::cout << std::endl;
 
-    std::cout << GREEN << "********* TEST2: Create a form & try to sign ***********" << RESET << std::endl;
-    std::cout << std::endl; 
+    ShrubberyCreationForm shrub("Module05");
+    RobotomyRequestForm robot("Bender");
+    PresidentialPardonForm pardon("Ford");
+    std::cout << std::endl;
 
-    try
-    {
-        Bureaucrat claudine("Claudine", 15);
-        Form form("Bob", 20, 45);
-        std::cout << std::endl;
+    // Try to execute unsigned forms
+    std::cout << RED << "********* TEST1: Try to execute unsigned form ***********" << RESET << std::endl;
+    std::cout << std::endl;
 
-        std::cout << claudine << std::endl;
-        std::cout << form << std::endl;
-        std::cout << std::endl;
+    president.executeForm(shrub);  // Fails: not signed
+    std::cout << std::endl;
 
-        claudine.signForm(form);
-        std::cout << form << std::endl;
-        std::cout << std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cout << RED << "Exception: " <<  e.what() << RESET << '\n';
-    }
+    // Sign and execute
+    std::cout << GREEN << "********* TEST2: Sign & Execute ***********" << RESET << std::endl;
+    std::cout << std::endl;
+
+    president.signForm(shrub);
+    president.executeForm(shrub);  // Creates home_shrubbery file
+    std::cout << std::endl;
+
+    std::cout << RED << "********* TEST3: Sign & Execute: Grade too LOW ***********" << RESET << std::endl;
     std::cout << std::endl;
     
-    std::cout << GREEN << "********* TEST3: A Form & try to sign but grade is not enough ***********" << RESET << std::endl;
-    std::cout << std::endl; 
-    try
-    {
-        Bureaucrat out("Claudine", 35);
-        Form form1("Bob", 30, 45);
-        std::cout << std::endl;
+    clerk.signForm(robot);     // Fails: grade too low
+    std::cout << std::endl;
 
-        std::cout << out << std::endl;
-        std::cout << form1 << std::endl;
-        std::cout << std::endl;
+    std::cout << YELLOW << "********* TEST7: Robotomy 50% of the time ***********" << RESET << std::endl;
+    std::cout << std::endl;
+    // robotomy succeeds only 50% of the time, 
+    // it's customary to execute it multiple times:
 
-        out.signForm(form1);
-        std::cout << form1 << std::endl;
-        std::cout << std::endl;
-    }
-    catch(const std::exception& e)
+    for (int i = 0; i < 3; i++)
     {
-        std::cerr << RED << "Exception: " <<  e.what() << RESET << '\n';
+        president.signForm(robot);
+        president.executeForm(robot);
+         std::cout << std::endl;
     }
-    std::cout << std::endl;    
+
+    std::cout << GREEN << "********* TEST5: Presidential Pardon ***********" << RESET << std::endl;
+    std::cout << std::endl;
+
+    president.signForm(pardon);
+    president.executeForm(pardon);
+    std::cout << std::endl;
+
+    std::cout << RED << "********* TEST6: Execute grade too low ***********" << RESET << std::endl;
+    std::cout << std::endl;
+    // Since ShrubberyCreationForm requires grade 137 to execute 
+    // and the clerk is 140, this should throw.
+
+    president.signForm(shrub);
+    clerk.executeForm(shrub);
+    std::cout << std::endl;
+
+    std::cout << RED << "********* CLASSES' DESTRUCTION ***********" << RESET << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

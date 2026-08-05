@@ -8,13 +8,17 @@
 class RobotomyRequestForm : public AForm
 {
     private:
-        const std::string Module05;
+        std::string _target;
 
     public:
-        RobotomyRequestForm(const std::string& Module05);
+        RobotomyRequestForm(const std::string& target);
         RobotomyRequestForm(const RobotomyRequestForm &copy);
         RobotomyRequestForm& operator=(RobotomyRequestForm const& src);
         ~RobotomyRequestForm();
+
+        void execute(Bureaucrat const& executor) const;
 };
+
+std::ostream& operator<<(std::ostream& str, const RobotomyRequestForm& f);
 
 #endif
