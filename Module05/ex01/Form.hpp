@@ -34,7 +34,7 @@ class Form
                 const char* what() const throw() {return "Grade is too low";}
         };
 
-        const std::string getName() const;
+        const std::string& getName() const;
         bool isSigned() const;
         int getGradeToSign() const;
         int getGradeToExecute() const;
