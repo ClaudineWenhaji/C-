@@ -4,8 +4,6 @@
 #include "AForm.hpp"
 #include <string>
 
-// this class print X has been pardoned by Zaphod Beeblerox
-
 class PresidentialPardonForm : public AForm
 {
     private:

@@ -8,7 +8,7 @@
 class Bureaucrat; // Forward declaration 
                   // pour eviter la dependance circulaire
 
-class Form
+class AForm
 {
     private:
         const std::string name;
@@ -18,10 +18,10 @@ class Form
 
     public:
 
-        Form(const std::string name, const int gradeToSign, const int gradeToExecute);
-        Form(const Form& src);
-        Form& operator=(const Form& src);
-        ~Form();
+        AForm(const std::string name, const int gradeToSign, const int gradeToExecute);
+        AForm(const AForm& src);
+        AForm& operator=(const AForm& src);
+        virtual ~AForm();
 
         class GradeTooHighException : public std::exception
         {
@@ -31,7 +31,12 @@ class Form
         class GradeTooLowException : public std::exception
         {
             public:
-                const char* what() const throw() {return "Grade is too low";}
+                const char* what() const throw(){return "Grade is too low";}
+        };
+        class FormNotSignedException : public std::exception
+        {
+            public:
+                const char* what() const throw(){return "Form not signed!";}
         };
 
         const std::string& getName() const;
@@ -39,11 +44,17 @@ class Form
         int getGradeToSign() const;
         int getGradeToExecute() const;
 
-        void beSigned(const Bureaucrat& bureau); 
+        void beSigned(const Bureaucrat& bureau);
+
+        virtual void execute(Bureaucrat const& executor) const = 0; 
+        // pure virtual fonction
+
+    protected:
+        void checkExecutability(Bureaucrat const& executor) const; // check helper 
 
 };
 
-std::ostream& operator<<(std::ostream& str, const Form& f);
+std::ostream& operator<<(std::ostream& str, const AForm& f);
 
 
 #endif

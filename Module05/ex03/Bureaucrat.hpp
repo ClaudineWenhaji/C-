@@ -5,7 +5,7 @@
 #include <exception>
 #include <iostream>
 
-class Form;   // Forward declaration 
+class AForm;   // Forward declaration 
               // pour eviter la dependance circulaire
 
 class Bureaucrat
@@ -42,11 +42,9 @@ class Bureaucrat
         void incrementGrade();
         void decrementGrade();
         
-        void signForm(Form& f); // Bureaucrat can sign the Form
-                                // which call beSigned
-        // if bureaucrat.grade <= form.gradeToSign
-        // signed = true
-        // Now Bureaucrat and Form collaborate
+        void signForm(AForm& f);
+
+        void executeForm(AForm const& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);

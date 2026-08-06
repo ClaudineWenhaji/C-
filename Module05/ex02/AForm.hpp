@@ -8,7 +8,11 @@
 class Bureaucrat; // Forward declaration 
                   // pour eviter la dependance circulaire
 
-class AForm
+// AForm now is generic (only the base) that won't be instantiate, not useful to use a generic form
+// instead we want to use ShrubberyCreationForm, RobotomyRequestForm 
+// & PresidentialPardonForm
+
+class AForm // Abstract class
 {
     private:
         const std::string name;
@@ -50,7 +54,10 @@ class AForm
         // pure virtual fonction
 
     protected:
-        void checkExecutability(Bureaucrat const& executor) const; // check helper 
+        void checkExecutability(Bureaucrat const& executor) const; 
+        // check helper 
+        // before executing, check whether the form is signed 
+        // and if bureaucrat grade is high
 
 };
 

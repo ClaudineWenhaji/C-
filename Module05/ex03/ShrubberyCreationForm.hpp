@@ -3,8 +3,6 @@
 
 #include "AForm.hpp"
 
-// this class create a file and draw an ASCII tree
-
 class ShrubberyCreationForm : public AForm
 {
     private:

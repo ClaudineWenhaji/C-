@@ -5,8 +5,6 @@
 #include <exception>
 #include <string>
 
-// This class does some Drilling noises then 50%. Use of rand()
-
 class RobotomyRequestForm : public AForm
 {
     private:
