@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 10:25:13 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 12:07:43 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -44,8 +56,9 @@ class Bureaucrat
         
         void signForm(Form& f); // Bureaucrat can sign the Form
                                 // which call beSigned
+                                
         // if bureaucrat.grade <= form.gradeToSign
-        // signed = true
+        //      signed = true
         // Now Bureaucrat and Form collaborate
 };
 

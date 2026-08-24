@@ -1,5 +1,17 @@
-#ifndef FORM_HPP
-# define FORM_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 10:25:38 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 12:20:59 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <string>
 #include <iostream>
@@ -62,6 +74,5 @@ class AForm // Abstract class
 };
 
 std::ostream& operator<<(std::ostream& str, const AForm& f);
-
 
 #endif

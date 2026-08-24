@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 10:26:54 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 13:01:24 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "Intern.hpp"
@@ -10,6 +22,7 @@
 
 int main() 
 {
+    std::cout << std::endl;
     std::cout << BLUE << "********* CONSTRUCTION ***********" << RESET << std::endl;
     std::cout << std::endl;
 
@@ -42,7 +55,7 @@ int main()
     AForm* form4 = factory.makeForm("invalid form", "test");  // NULL
 
     std::cout << std::endl;
-    std::cout << YELLOW << "********* TESTs: Sign & Execute ***********" << RESET << std::endl;
+    std::cout << YELLOW << "********* TESTS: Sign & Execute ***********" << RESET << std::endl;
     std::cout << std::endl;
 
     if (form1) 

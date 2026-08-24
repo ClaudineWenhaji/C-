@@ -1,4 +1,4 @@
-name		= form
+name		= aform
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./form
+	valgrind --leak-check=full ./aform
 
 .PHONY: all clean fclean re

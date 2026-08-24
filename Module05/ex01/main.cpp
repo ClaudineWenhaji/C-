@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 10:25:28 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 12:59:07 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "Colors.hpp"
 
 int main()
 {
+    std::cout << std::endl;
     std::cout << GREEN << "********* TEST1: A Form with grade too high or too low ***********" << RESET << std::endl;
     std::cout << std::endl; 
 

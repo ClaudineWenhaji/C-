@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/08/24 10:25:53 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 12:58:57 by clwenhaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -9,6 +21,7 @@
 
 int main() 
 {
+    std::cout << std::endl;
     std::srand(std::time(NULL));
 
     std::cout << YELLOW << "********* CLASSES' CONSTRUCTION ***********" << RESET << std::endl;
@@ -35,7 +48,7 @@ int main()
     std::cout << std::endl;
 
     president.signForm(shrub);
-    president.executeForm(shrub);  // Creates home_shrubbery file
+    president.executeForm(shrub);  // Creates Module05_shrubbery file
     std::cout << std::endl;
 
     std::cout << RED << "********* TEST3: Sign & Execute: Grade too LOW ***********" << RESET << std::endl;
@@ -44,7 +57,7 @@ int main()
     clerk.signForm(robot);     // Fails: grade too low
     std::cout << std::endl;
 
-    std::cout << YELLOW << "********* TEST7: Robotomy 50% of the time ***********" << RESET << std::endl;
+    std::cout << YELLOW << "********* TEST4: Robotomy 50% of the time ***********" << RESET << std::endl;
     std::cout << std::endl;
     // robotomy succeeds only 50% of the time, 
     // it's customary to execute it multiple times:
