@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 10:25:35 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/24 10:25:36 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/25 12:08:58 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute)
 AForm::AForm(const AForm& src)
     : name(src.name), _signed(src._signed), gradeToSign(src.gradeToSign), gradeToExecute(src.gradeToExecute)
 {
-    std::cout << "Form Copy constructed" << std::endl;
+    std::cout << "AForm Copy constructed" << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& src)
@@ -37,7 +37,7 @@ AForm& AForm::operator=(const AForm& src)
     return *this;
 }
 
-AForm::~AForm(){std::cout << "Form is destructed!" << std::endl;}
+AForm::~AForm(){std::cout << "AForm is destructed!" << std::endl;}
 
 const std::string& AForm::getName() const {return name;}
 bool AForm::isSigned() const {return _signed;}
