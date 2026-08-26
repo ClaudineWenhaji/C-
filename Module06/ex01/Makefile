@@ -1,9 +1,9 @@
-name		= converter
+name		= serializer
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp ScalarConverter.cpp
+SRCS		= main.cpp Serializer.cpp
 
 OBJS		= $(SRCS:%.cpp=%.o)
 
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./converter
+	valgrind --leak-check=full ./serializer
 
 .PHONY: all clean fclean re
