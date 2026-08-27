@@ -1,9 +1,9 @@
-name		= converter
+name		= typeinfo
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp ScalarConverter.cpp
+SRCS		= main.cpp Base.cpp
 
 OBJS		= $(SRCS:%.cpp=%.o)
 
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./converter
+	valgrind --leak-check=full ./typeinfo
 
 .PHONY: all clean fclean re

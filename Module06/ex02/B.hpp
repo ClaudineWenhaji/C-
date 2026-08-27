@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/26 17:34:34 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/27 15:07:00 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/08/27 17:07:13 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/27 17:17:19 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DATA_HPP
-# define DATA_HPP
+#ifndef B_HPP
+# define B_HPP
 
-#include <string>
+#include "Base.hpp"
 
-struct Data {
-    int int_value;
-    char char_value;
-    float float_value;
-    double double_value;
-};
+class B : public Base {};
 
 #endif

@@ -6,35 +6,40 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 17:47:29 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/26 18:01:43 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/27 16:36:20 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+#include "Colors.hpp"
 #include <iostream>
 
 int main()
 {
-    Data test = {2, "Boss", 42};
+    Data test = {2, 'H' , 3.14f, 42};
     
-    std::cout << "Before serialise()" << std::endl
-              << "Id: " << test.id << std::endl
-              << "Name: " << test.name << std::endl
-              << "Value: " << test.value << std::endl;
+    std::cout << std::endl;
+    std::cout << GREEN << "Before serialise()" << RESET << std::endl
+              << "Address: " << &test << std::endl
+              << "Int: " << test.int_value << std::endl
+              << "Char: " << test.char_value << std::endl
+              << "Float: " << test.float_value << std::endl
+              << "Double: " << test.double_value << std::endl;
     
     uintptr_t converted = Serializer::serialize(&test);
     std::cout << std::endl;
-    std::cout << "After serialise()" << std::endl
-              << "Id: " << *reinterpret_cast<int *>(converted) << std::endl
-              << "Name: " << *reinterpret_cast<char *>(converted) << std::endl
-              << "Value: " << *reinterpret_cast<int *>(converted)
-              << std::endl;
-
+    
+    std::cout << GREEN << "After serialise()" << RESET << std::endl
+              << "Original address: " << &test << std::endl
+              << "Serialized value: " << converted << std::endl;
+              
     Data *reconverted = Serializer::deserialize(converted);
     std::cout << std::endl;
-    std::cout << "After deserialise()" << std::endl
-              << "Id: " << reconverted->id << std::endl
-              << "Name: " << reconverted->name << std::endl
-              << "Value: " << reconverted->value
-              << std::endl;
+    
+    std::cout << GREEN << "After deserialise()" << RESET << std::endl
+              << "Address: " << reconverted << std::endl
+              << "Int: " << reconverted->int_value << std::endl
+              << "Char: " << reconverted->char_value << std::endl
+              << "Float: " << reconverted->float_value << std::endl
+              << "Double: " << reconverted->double_value << std::endl;
 }

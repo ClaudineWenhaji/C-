@@ -1,4 +1,4 @@
-name		= serializer
+name		= reinterpret
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./serializer
+	valgrind --leak-check=full ./reinterpret
 
 .PHONY: all clean fclean re
