@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 16:45:24 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/28 12:35:49 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 16:20:27 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,16 +171,26 @@ static void convertFromPseudoLiteral(const std::string& str)
 {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
-    
-    if (str.find("nan") != std::string::npos)
+
+    if (str == "nan" || str == "nanf")
     {
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
     }
-    else
+    else if (str == "inf" || str == "inff")
     {
-        std::cout << "float: " << str[0] << "inff" << std::endl;
-        std::cout << "double: " << str[0] << "inf" << std::endl;
+        std::cout << "float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
+    }
+    else if (str == "+inf" || str == "+inff")
+    {
+        std::cout << "float: +inff" << std::endl;
+        std::cout << "double: +inf" << std::endl;
+    }
+    else if (str == "-inf" || str == "-inff")
+    {
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
     }
 }
 
