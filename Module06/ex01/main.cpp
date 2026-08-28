@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 17:47:29 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/27 16:36:20 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 13:12:48 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,12 @@ int main()
               << "Char: " << reconverted->char_value << std::endl
               << "Float: " << reconverted->float_value << std::endl
               << "Double: " << reconverted->double_value << std::endl;
+
+              std::cout << std::endl;
+    if (reconverted == &test)
+        std::cout << GREEN << "SUCCESS" << RESET << std::endl;
+    else
+        std::cout << "FAILURE" << std::endl;
+    std::cout << std::endl;
+
 }

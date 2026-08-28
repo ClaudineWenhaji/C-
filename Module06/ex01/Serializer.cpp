@@ -6,11 +6,12 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 17:38:53 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/26 17:45:12 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 11:04:14 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+
 Serializer::Serializer() {}
 Serializer::Serializer(const Serializer& copy) {(void)copy;}
 Serializer& Serializer::operator=(const Serializer& src) {(void)src; return *this;}

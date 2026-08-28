@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 16:45:24 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/26 16:44:47 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 12:35:49 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,91 +32,99 @@ static bool isInt(const std::string& str)
 {
     if (str.empty())
         return false;
+
+    size_t index = 0;
+    if (str[0] == '+' || str[0] == '-')
+        index = 1;
+        
+    if (index == str.size())
+        return false;
     
-    const size_t pos = str.find("-");   // find retourne la position de "-" si trouve'
-                                        // si pas trouve', retourne npos
-                                        
-    if (pos != std::string::npos && pos != 0) // donc si "-" est trouve et pas au debut
-        return false; 
-    
-    // find_first_not_of(string, pos)
-    // cherche la position de "-" qui n'est pas dans la chaine "0123456789"
-    // si pas trouve', retourne npos sinon retourne l'index
-     
-    if (str.find_first_not_of("0123456789", pos == std::string::npos ? 0 : 1) != std::string::npos)
+    if (str.find_first_not_of("0123456789", index) != std::string::npos)
         return false;
     return true;
 }
 
 static bool isFloat(const std::string& str) 
 {
-    if (str.empty())
-        return false;
-        
-    const size_t pos = str.find('-');
-    if (pos != std::string::npos && pos != 0)
+    if (str.empty() || str[str.size() - 1] != 'f')
         return false;
 
-    const size_t dot_pos = str.find('.');
+    size_t index = 0;
+    
+    if (str[0] == '+' || str[0] == '-')
+        index = 1;
+        
+    if (index == str.size())
+        return false;
+
+    const size_t dot_pos = str.find('.', index);
     if (dot_pos == std::string::npos)
         return false;
         
-    if (str[str.size() - 1] != 'f')
+    if (str.find('.', dot_pos + 1) != std::string::npos)
         return false;
-    
-    const size_t index = pos == 0 ? 1 : 0; // je veux analyser ou commencent les chiffres
-    
+
     const std::string decimalPart = str.substr(index, dot_pos - index); // substr(debut, longueur)
-    const std::string fractionalPart = str.substr(dot_pos + 1, str.size() - (dot_pos + 2));
+    const std::string fractionalPart = str.substr(dot_pos + 1, str.size() - (dot_pos - 2));
     
+    if (decimalPart.empty() || fractionalPart.empty())
+        return false;
+        
     if (decimalPart.find_first_not_of("0123456789") != std::string::npos 
         || fractionalPart.find_first_not_of("0123456789") != std::string::npos)
         return false;
-    
-    return(!decimalPart.empty() && !fractionalPart.empty()); 
-    // verifie que les 2 parties contiennent quelque chose
+        
+    return true;
 }
 
 static bool isDouble(const std::string& str) 
 {
     if (str.empty())
         return false;
-    
-    const size_t pos = str.find('-');
-    if (pos != std::string::npos && pos != 0)
-        return false;
 
-    const size_t dot_pos = str.find('.');
+    size_t index = 0;
+    
+    if (str[0] == '+' || str[0] == '-')
+        index = 1;
+        
+    if (index == str.size())
+        return false;
+    
+    const size_t dot_pos = str.find('.', index);
     if (dot_pos == std::string::npos)
         return false;
-
-    const size_t index = pos == 0 ? 1 : 0; // je veux analyser ou commencent les chiffres
-    
-    const std::string decimalPart = str.substr(index, dot_pos - index); // substr(debut, longueur)
-    const std::string fractionalPart = str.substr(dot_pos + 1, str.size() - (dot_pos + 1));
-    
-    if (decimalPart.find_first_not_of("0123456789") != std::string::npos || 
-        fractionalPart.find_first_not_of("0123456789") != std::string::npos)
+        
+    if (str.find('.', dot_pos + 1) != std::string::npos)
         return false;
+
+    const std::string decimalPart = str.substr(index, dot_pos - index); // substr(debut, longueur)
+    const std::string fractionalPart = str.substr(dot_pos + 1);
     
-    return(!decimalPart.empty() && !fractionalPart.empty()); 
-    // verifie que les 2 parties contiennent quelque chose
+    if (decimalPart.empty() || fractionalPart.empty())
+        return false;
+        
+    if (decimalPart.find_first_not_of("0123456789") != std::string::npos 
+        || fractionalPart.find_first_not_of("0123456789") != std::string::npos)
+        return false;
+        
+    return true;
 }
 
-static bool isInfinite(const std::string& str)
+static bool isPseudoLiteral(const std::string& str)
 {
     if (str.empty())
         return false;
         
     if (str == "-inff" || str == "+inff" ||
         str == "-inf" || str == "+inf" ||
-        str == "nanf" || str == "nan")
+        str == "nanf" || str == "nan" ||
+        str == "inf" || str == "inff")
         return true;
     return false;
 }
 
 // *************************** PARSING END ************************************ //
-
 
 static void convertToChar(const char &c)
 {
@@ -159,7 +167,7 @@ static void convertToNumber(long double num)
     }
 }
 
-static void convertFromInfinity(const std::string& str)
+static void convertFromPseudoLiteral(const std::string& str)
 {
     std::cout << "char: impossible" << std::endl;
     std::cout << "int: impossible" << std::endl;
@@ -187,8 +195,8 @@ static void convertFromChar(const std::string str)
 
 void ScalarConverter::convert(const std::string& literal)
 {
-    if (isInfinite(literal))
-        convertFromInfinity(literal);
+    if (isPseudoLiteral(literal))
+        convertFromPseudoLiteral(literal);
     else if (isChar(literal))
         convertFromChar(literal);
     else if (isInt(literal))
@@ -200,3 +208,5 @@ void ScalarConverter::convert(const std::string& literal)
     else
         std::cout << "Unknown type" << std::endl;
 }
+
+// Order of detection important: first infinite, then char, int, float, double

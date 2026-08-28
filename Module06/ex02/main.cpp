@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 17:30:01 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/27 17:49:42 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 13:38:11 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,20 @@ int main()
     std::cout << GREEN << "GOOD" << RESET << std::endl;
     
     Base* derivedClass = generate();
+    
     identify(derivedClass);
     identify(*derivedClass);
-
+    
+    delete derivedClass;
+    
     std::cout << std::endl;
     std::cout << RED << "WRONG" << RESET << std::endl;
    
     Base* wrongClass = new E;
     identify(wrongClass);
     identify(*wrongClass);
+
+    delete wrongClass;
     std::cout << std::endl;
     
     return (0); 

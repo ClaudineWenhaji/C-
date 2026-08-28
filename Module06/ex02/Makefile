@@ -1,4 +1,4 @@
-name		= typeinfo
+name		= info
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./typeinfo
+	valgrind --leak-check=full ./info
 
 .PHONY: all clean fclean re

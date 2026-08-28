@@ -1,4 +1,4 @@
-name		= converter
+name		= convert
 
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
@@ -35,6 +35,6 @@ fclean: clean
 re: fclean all
 
 test: $(name)
-	valgrind --leak-check=full ./converter
+	valgrind --leak-check=full ./convert
 
 .PHONY: all clean fclean re

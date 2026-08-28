@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 17:07:13 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/08/27 17:37:39 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/08/28 12:51:03 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Base
         virtual ~Base();
 };
 
+
 Base *generate(void);
 
 void identify(Base* p); // prints the actual type of the object pointed to by p: "A", "B" or "C"
@@ -30,3 +31,7 @@ void identify(Base* p); // prints the actual type of the object pointed to by p:
 void identify(Base& p); // prints the actual type of the object pointed to by p: "A", "B" or "C"
                         // p The Base reference to be checked
 #endif
+
+// Identify the real type of an object pointed to by class Base
+// this is done dynamically dynamic_cast, with heritage, polymorphism, and RTTI
+// RTTI: Runtime Type Information
