@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Colors.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/28 17:09:32 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/01 12:59:35 by clwenhaj         ###   ########.fr       */
+/*   Created: 2026/08/24 10:26:38 by clwenhaj          #+#    #+#             */
+/*   Updated: 2026/08/24 10:26:39 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef COLORS_HPP
+# define COLORS_HPP
 
-#include <cstddef>
+#include <iostream>
 
-template <typename T, typename F>
-
-void iter(T* array, size_t length, void (*func)(F))
-{
-    for (size_t i = 0; i < length; i++)
-        func(array[i]);
-}
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define YELLOW  "\033[33m"
+#define BLUE    "\033[34m"
+#define MAGENTA "\033[35m"
+#define CYAN    "\033[36m"
+#define BOLD    "\033[1m"
 
 #endif
