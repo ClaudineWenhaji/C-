@@ -60,9 +60,18 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+    
+    std::cout << std::endl;
+    std::cout << GREEN << "Test3 Valid Indices with random numbers" << RESET << std::endl;
+    for (int i = 0; i < 10; i++)
+    {
+        numbers[i] = rand();
+        std::cout << "Number " << i << " = " << numbers[i] << std::endl;
+    }
+    delete [] mirror;//
 
     std::cout << std::endl;
-    std::cout << GREEN << "Test3 Valid indices" << RESET << std::endl;
+    std::cout << GREEN << "Test4 Valid indices" << RESET << std::endl;
 
     try 
     {
@@ -120,8 +129,6 @@ int main(int, char**)
     {
         std::cout << e.what() << std::endl;
     }
-
-    delete [] mirror;//
 
     return 0;
 }
