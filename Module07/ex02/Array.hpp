@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/01 11:03:55 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/01 14:42:03 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/02 11:33:32 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ARRAY_HPP
 
 #include <iostream>
-#include <exception>
+#include <stdexcept>
 
 template <class T>
 
@@ -32,12 +32,8 @@ class Array
         ~Array();
         
         T& operator[](unsigned int index);
+        
         unsigned int size() const;
-               
-        class OutofRange :: public std::exception
-        {
-            const char* what() const throw();
-        };
 };
 
 // Inclusion du fichier d'implémentation à la fin
