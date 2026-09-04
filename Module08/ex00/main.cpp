@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 15:32:14 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/03 16:02:00 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/04 15:57:32 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,16 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
+
+    
     std::cout << std::endl;
     std::cout << GREEN << "Test with List" << RESET << std::endl;
     
     std::list<int> lst;
 
-    lst.push_back(19); lst.push_back(0); lst.push_back(-1);
+    lst.push_back(19); 
+    lst.push_back(0); 
+    lst.push_back(-1);
     
     try
     {

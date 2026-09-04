@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 16:06:16 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/03 18:22:49 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/04 15:58:43 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@ class Span
         ~Span();
 
         void addNumber(int number);
-        
         int shortestSpan() const;
         int longestSpan() const;
 
-        // For range addition
+        // For range addition: to add many numbers from a range of numbers
         template <typename Iterator>
         void addNumber(Iterator begin, Iterator end)
         {
             while(begin != end)
             {
-                addNumber(*begin); // reuse single-add (includes full check)
+                addNumber(*begin); // deference, needs the value not the pointor
                 ++begin;
             }
         }

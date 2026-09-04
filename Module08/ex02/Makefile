@@ -3,10 +3,10 @@ NAME		= stl
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp Span.cpp
+SRCS		= main.cpp
 OBJS		= $(SRCS:%.cpp=%.o)
 
-HEADERS		= Span.hpp Colors.hpp
+HEADERS		= MutantStack.hpp Colors.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m

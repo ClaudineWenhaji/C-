@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 17:17:01 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/03 18:33:16 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/04 11:23:19 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int Span::shortestSpan() const
         int span = sorted[i] - sorted[i - 1];
         
         if (span < minimumSpan)
-            span = minimumSpan;
+            minimumSpan = span;
     }
     return minimumSpan;
 }

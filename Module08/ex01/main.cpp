@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 18:16:18 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/03 18:42:11 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/04 11:25:19 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int main()
 {
     std::cout << std::endl;
-    std::cout << GREEN << "Normal Test" << RESET << std::endl;
+    std::cout << GREEN << "----------------- Test1: Normal ------------------" << RESET << std::endl;
     std::cout << std::endl;
     
     Span sp = Span(5);
@@ -32,7 +32,7 @@ int main()
     std::cout << "Longest: " << sp.longestSpan() << std::endl;
 
     std::cout << std::endl;
-    std::cout << GREEN << "Test exceptions" << RESET << std::endl;
+    std::cout << GREEN << "----------------- Test2: Exceptions ------------------" << RESET << std::endl;
     std::cout << std::endl;
     
     try 
@@ -45,7 +45,7 @@ int main()
     }
 
     std::cout << std::endl;
-    std::cout << GREEN << "Test Empty" << RESET << std::endl;
+    std::cout << GREEN << "----------------- Test3: Empty ------------------" << RESET << std::endl;
     std::cout << std::endl;
     
     Span empty(5);
@@ -59,7 +59,7 @@ int main()
     }
     
     std::cout << std::endl;
-    std::cout << GREEN << "Test Largest number 10000" << RESET << std::endl;
+    std::cout << GREEN << "----------------- Test4: Largest number 10000 with range ------------------" << RESET << std::endl;
     std::cout << std::endl;
     
     Span big(10000);
