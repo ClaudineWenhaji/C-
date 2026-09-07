@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/15 19:53:44 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/07/21 10:43:04 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/07 16:33:27 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ Fixed::Fixed(const Fixed& src)
 
 Fixed &Fixed::operator=(const Fixed& src)
 {
-    std::cout << "Copy assignment operator called" 
-              << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
               
     if (this != &src)
         fixedValue = src.getRawBits();
@@ -35,16 +34,14 @@ Fixed &Fixed::operator=(const Fixed& src)
 
 Fixed::Fixed(const int value_int)
 {
-    std::cout << "Int constructor called" 
-              << std::endl;
+    std::cout << "Int constructor called" << std::endl;
               
     fixedValue = value_int << fractionalBits;
 }
 
 Fixed::Fixed(const float value_float)
 {
-    std::cout << "Float constructor called" 
-              << std::endl;
+    std::cout << "Float constructor called" << std::endl;
               
     fixedValue = (roundf(value_float * (1 << fractionalBits)));
 }
