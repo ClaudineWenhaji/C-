@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 10:35:05 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/10 15:31:31 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:38:35 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,10 @@ void PMergeMe::sortVector()
 
 // ----------------- WITH STD::DEQUE -----------------------//
 
+void PMergeMe::sortDeque()
+{
+    
+}
 
 // -------------------------- SORTING -------------------------- //
 
@@ -193,15 +197,15 @@ void PMergeMe::sort()
     clock_t endVec = clock();
     double vecTime = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
     
-    //clock_t startDeq = clock();
-    //sortDeque();
-    //clock_t endDeq = clock();
-    //double deqTime = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
+    clock_t startDeq = clock();
+    sortDeque();
+    clock_t endDeq = clock();
+    double deqTime = static_cast<double>(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
     
     std::cout << "Time to process a range of " << _vec.size()
               << " elements with std::vector: " << vecTime << " us" << std::endl;
               
-    //std::cout << "Time to process a range of " << _deq.size()
-    //        << " elements with std::deque: " << deqTime << " us" << std::endl;
+    std::cout << "Time to process a range of " << _deq.size()
+              << " elements with std::deque: " << deqTime << " us" << std::endl;
 }
 
