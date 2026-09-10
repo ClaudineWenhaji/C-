@@ -6,28 +6,29 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 16:49:56 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/08 12:10:27 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/10 14:03:06 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 #include <iostream>
 
 int main(int ac, char **av)
 {
-    if (ac != 2)
+    if (ac < 2)
     {
-        std::cout << "Error Usage like: ./RPN \"1 9 - 4 - 1 +\"" << std::endl;
+        std::cout << "Error - Usage: " << av[0] << " numbers..." << std::endl;
         return 1;
     }
-
-    RPN calculator;
     
     try
     {
+       PMergeMe sorter;
+       sorter.ParseInput(ac, av);
+       sorter.displayBefore();
+       sorter.sort();
+       sorter.displayAfter();
        
-       int result = calculator.evaluate(av[1]);
-       std::cout << result << std::endl;
     }
     catch(const std::exception &e)
     {

@@ -3,10 +3,10 @@ NAME		= PmergeMe
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRCS		= main.cpp RPN.cpp
+SRCS		= main.cpp PmergeMe.cpp
 OBJS		= $(SRCS:%.cpp=%.o)
 
-HEADERS		= RPN.hpp
+HEADERS		= PmergeMe.hpp
 
 GREEN		= \033[0;32m
 RED			= \033[0;31m
