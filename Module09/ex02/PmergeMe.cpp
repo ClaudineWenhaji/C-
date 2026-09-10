@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 10:35:05 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/10 15:01:14 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:31:31 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,67 @@ PMergeMe& PMergeMe::operator=(const PMergeMe& src)
 }
 PMergeMe::~PMergeMe() {}
 
+// ----------------------------- PARSING ------------------------------ //
+
+void PMergeMe::ParseInput(int ac, char** av)
+{
+    for (int i = 1; i < ac; i++)
+    {
+        std::string tok = av[i];
+        
+        if (tok.empty())
+            throw std::runtime_error("Error: empty argument");
+            
+        for (size_t j = 0; j < tok.size(); j++)
+        {
+            if (!std::isdigit(static_cast<unsigned char>(tok[j])))
+                throw std::runtime_error("Error: not a digit");
+        }
+        
+        int num = std::atoi(av[i]);
+        if (num < 0)
+            throw std::runtime_error("Error: negative number");
+        if (num > 2147483647)
+            throw std::runtime_error("Error: Integer overflow");
+            
+        _vec.push_back(static_cast<int>(num));
+        _deq.push_back(static_cast<int>(num));
+    }
+    
+    if (_vec.empty() || _deq.empty())
+        throw std::runtime_error("Error: No argument");
+}
+
+// -------------------------- DISPLAY FORMAT --------------------------- //
+
+void PMergeMe::displayBefore() const
+{
+    std::cout << "Before: ";
+    for (std::vector<int>::const_iterator i = _vec.begin(); i != _vec.end(); ++i)
+    {
+        std::cout << *i;
+        if (i + 1 != _vec.end())
+            std::cout << " ";
+    }
+    std::cout << std::endl;
+}
+
+void PMergeMe::displayAfter() const
+{
+    std::cout << "After: ";
+    for (std::vector<int>::const_iterator i = _vec.begin(); i != _vec.end(); ++i)
+    {
+        std::cout << *i;
+        if (i + 1 != _vec.end())
+            std::cout << " ";
+    }
+    std::cout << std::endl;
+}
+
+// ****************************************************************************** //
+//                               FORD-JOHNSON ALGORITHM                           //
+// ****************************************************************************** //
+
 static int jacobsthal(int n)
 {
     if (n == 0)
@@ -37,6 +98,8 @@ static int jacobsthal(int n)
         return 1;
     return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
 }
+
+// -------------------- WITH STD::VECTOR -----------------------//
 
 void PMergeMe::sortVector()
 {
@@ -118,6 +181,9 @@ void PMergeMe::sortVector()
     _vec = larger;
 }
 
+// ----------------- WITH STD::DEQUE -----------------------//
+
+
 // -------------------------- SORTING -------------------------- //
 
 void PMergeMe::sort()
@@ -139,59 +205,3 @@ void PMergeMe::sort()
     //        << " elements with std::deque: " << deqTime << " us" << std::endl;
 }
 
-// ----------------------------- PARSING ------------------------------ //
-
-void PMergeMe::ParseInput(int ac, char** av)
-{
-    for (int i = 1; i < ac; i++)
-    {
-        std::string tok = av[i];
-        
-        if (tok.empty())
-            throw std::runtime_error("Error: empty argument");
-            
-        for (size_t j = 0; j < tok.size(); j++)
-        {
-            if (!std::isdigit(static_cast<unsigned char>(tok[j])))
-                throw std::runtime_error("Error: not a digit");
-        }
-        
-        int num = std::atoi(av[i]);
-        if (num < 0)
-            throw std::runtime_error("Error: negative number");
-        if (num > 2147483647)
-            throw std::runtime_error("Error: Integer overflow");
-            
-        _vec.push_back(static_cast<int>(num));
-        _deq.push_back(static_cast<int>(num));
-    }
-    
-    if (_vec.empty() || _deq.empty())
-        throw std::runtime_error("Error: No argument");
-}
-
-// -------------------------- DISPLAY FORMAT --------------------------- //
-
-void PMergeMe::displayBefore() const
-{
-    std::cout << "Before: ";
-    for (std::vector<int>::const_iterator i = _vec.begin(); i != _vec.end(); ++i)
-    {
-        std::cout << *i;
-        if (i + 1 != _vec.end())
-            std::cout << " ";
-    }
-    std::cout << std::endl;
-}
-
-void PMergeMe::displayAfter() const
-{
-    std::cout << "After: ";
-    for (std::vector<int>::const_iterator i = _vec.begin(); i != _vec.end(); ++i)
-    {
-        std::cout << *i;
-        if (i + 1 != _vec.end())
-            std::cout << " ";
-    }
-    std::cout << std::endl;
-}
