@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 12:19:52 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/10 15:34:31 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/11 12:05:53 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,24 @@
 
 #include <vector>
 #include <deque>
+#include <cstddef>
 
 class PMergeMe
 {
     private:
+       
+        struct Pair
+        {
+            int small;
+            int large;
+        };
     
         std::vector<int> _vec;
         std::deque<int> _deq;
-      
-        void sortVector();
-        void sortDeque();
+
+
+        size_t jacobsthal(int n);
+
 
     public:
     
@@ -32,11 +40,14 @@ class PMergeMe
         PMergeMe(const PMergeMe& copy);
         PMergeMe& operator=(const PMergeMe& src);
         ~PMergeMe();
-
+        
         void ParseInput(int ac, char** av);
         void sort();
         void displayBefore() const;
         void displayAfter() const;
+
+        void sortVector();
+        void sortDeque();
 };
 
 #endif
