@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 16:49:56 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/07 17:49:05 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 12:01:11 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int ac, char **av)
     try
     {
         BitcoinExchange exchange;
-        exchange.processInput(av[1]);
+        exchange.inputFile(av[1]);
     }
     catch(const std::exception &e)
     {

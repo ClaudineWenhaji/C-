@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 18:11:32 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/08 11:14:09 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 13:24:24 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stack>
 #include <string>
+#include <stdexcept>
 
 class RPN
 {

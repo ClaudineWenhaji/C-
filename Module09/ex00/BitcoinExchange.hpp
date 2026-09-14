@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 10:40:17 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/07 17:44:55 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 15:31:30 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class BitcoinExchange
 {
     private:
-        std::map<std::string, float> _datafile;
+        std::map<std::string, float> _datafile; // map<keytype, valuetype> mapName
 
         bool isValidDate(const std::string& date) const;
         bool isValidValue(const std::string& value, float& result) const;
@@ -30,8 +30,8 @@ class BitcoinExchange
         BitcoinExchange& operator=(const BitcoinExchange& src);
         ~BitcoinExchange();
 
-        void dataFile(const std::string& filename);
-        void processInput(const std::string& filename);
+        void dataBase(const std::string& filename);
+        void inputFile(const std::string& filename);
     
 };
 

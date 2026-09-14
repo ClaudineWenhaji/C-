@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 16:49:56 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/08 12:10:27 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 13:25:07 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main(int ac, char **av)
     
     try
     {
-       
        int result = calculator.evaluate(av[1]);
        std::cout << result << std::endl;
     }

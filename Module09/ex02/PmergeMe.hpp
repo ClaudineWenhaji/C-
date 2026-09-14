@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 12:19:52 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/11 12:05:53 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 11:34:10 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 #include <vector>
 #include <deque>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 #include <cstddef>
 
 class PMergeMe
@@ -29,10 +33,10 @@ class PMergeMe
     
         std::vector<int> _vec;
         std::deque<int> _deq;
-
+        double _vecTime;
+        double _deqTime;
 
         size_t jacobsthal(int n);
-
 
     public:
     
@@ -45,6 +49,7 @@ class PMergeMe
         void sort();
         void displayBefore() const;
         void displayAfter() const;
+        void displayTime() const;
 
         void sortVector();
         void sortDeque();

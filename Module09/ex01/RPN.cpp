@@ -6,12 +6,11 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 18:12:18 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/08 11:15:25 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/14 13:26:17 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-#include <stdexcept>
 
 RPN::RPN() {}
 RPN::RPN(const RPN& copy) : _stack(copy._stack) {}
@@ -23,7 +22,7 @@ RPN& RPN::operator=(const RPN& src)
 }
 RPN::~RPN() {}
 
-// ----------------------- REVERSE POLISH NOTATION PROGRAM -----------------------------//
+// ----------------------- REVERSE POLISH NOTATION (RNP) PROGRAM -----------------------------//
 
 int RPN::evaluate(const std::string& expression)
 {
@@ -38,15 +37,18 @@ int RPN::evaluate(const std::string& expression)
             continue;
             
         if (std::isdigit(c))
-            _stack.push(c - '0'); // doit pusher un digit (0 - 9) donc c - 48
+            _stack.push(c - '0');       // doit pusher un digit (0 - 9) donc c - 48
             
         else if (c == '+' || c == '-' || c == '*' || c == '/')
         {
             if (_stack.size() < 2)
                 throw std::runtime_error("Error");
             
-            int b = _stack.top(); _stack.pop();
-            int a = _stack.top(); _stack.pop();
+            int b = _stack.top(); 
+            _stack.pop();
+            
+            int a = _stack.top(); 
+            _stack.pop();
 
             int result;
             switch (c)
