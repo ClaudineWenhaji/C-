@@ -6,7 +6,7 @@
 /*   By: clwenhaj <clwenhaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 16:39:02 by clwenhaj          #+#    #+#             */
-/*   Updated: 2026/09/14 17:14:46 by clwenhaj         ###   ########.fr       */
+/*   Updated: 2026/09/15 10:30:27 by clwenhaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,23 @@
         larger = container;
 
     // ------------ Reconstitution des paires small -> large --------------- //
-
-        std::vector<Pair> sortedPairs;
-        std::vector<bool> used(pairs.size(), false);
+    // Reordonner pairs pour que ses elts apparaissent dans le meme ordre que larger //
     
+        std::vector<Pair> sortedPairs;
+        std::vector<bool> used(pairs.size(), false); 
+         
+        // tableau booleen de la meme taille que pairs used = [false, false, false, ...]
+        // chaque position correspond a un elt de pairs
+        // false: elt pas encore utilise
+        // true: elt deja ajoute a sortedPairs
+        
         for (size_t i = 0; i < larger.size(); ++i)
         {
             for (size_t j = 0; j < pairs.size(); ++j)
             {
                 if (!used[j] && pairs[j].large == larger[i])
                 {
-                    sortedPairs.push_back(pairs[j]);
+                    sortedPairs.push_back(pairs[j]); // on ajoute pairs[j] dans sortedPairs
                     used[j] = true;
                     break;
                 }
@@ -90,7 +96,7 @@
         Container mainChain;
     
         for (size_t i = 0; i < sortedPairs.size(); ++i)
-            mainChain.push_back(sortedPairs[i].large); // contient les les grands elts tries recursivement
+            mainChain.push_back(sortedPairs[i].large); // contient les grands elts tries recursivement
 
         // ------------------ Inserer les petits elts dans mainChain ------------------ //
         //          D'abord le 1er elt de smaller (car correspond au 1er elt de larger) 
@@ -128,7 +134,9 @@
             // pour limiter la recherche binaire
             
                 typename Container::iterator end = std::lower_bound(mainChain.begin(), mainChain.end(), bound);
+                // position du prochain larger
                 typename Container::iterator pos = std::lower_bound(mainChain.begin(), end, value);
+                // position de value (small) par rapport a son large
                 mainChain.insert(pos, value);
             }
             previous = current;
